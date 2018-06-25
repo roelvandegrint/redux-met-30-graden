@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "text": "The first message",
+        "status": "new"
+    },
+    {
+        "id": 2,
+        "text": "Another message",
+        "status": "new"
+    },
+    {
+        "id": 3,
+        "text": "My creativity is gone",
+        "status": "new"
+    },
+    {
+        "id": 4,
+        "text": "It's hot",
+        "status": "new"
+    },
+    {
+        "id": 5,
+        "text": "Need beer....",
+        "status": "new"
+    }
+]

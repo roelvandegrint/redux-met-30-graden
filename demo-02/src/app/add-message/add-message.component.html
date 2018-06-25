@@ -1,0 +1,8 @@
+<div>
+  <label for="message">Add a new message: </label>
+  <input [formControl]="message">
+  <button (click)="onAddMessageButtonClick()">Add</button>
+  <p>
+    {{ message.value }}
+  </p>
+</div>
