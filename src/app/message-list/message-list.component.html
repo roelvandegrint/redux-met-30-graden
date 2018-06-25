@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let message of filteredMessages" (click)="onMessageClick(message.id)">
+    {{ message.text }} ({{ message.status }})
+    <a [routerLink]="['/', message.id]">details tonen</a>
+    <button (click)="onReadButtonClick(message.id)">Maak gelezen</button>
+  </li>
+</ul>
