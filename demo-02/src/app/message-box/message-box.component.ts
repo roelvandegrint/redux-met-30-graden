@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../shared/models/message.model';
 import { MessageService } from '../shared/services/messages.service';
-import { LOCATION_INITIALIZED } from '@angular/common';
 
 @Component({
   selector: 'msg-message-box',
