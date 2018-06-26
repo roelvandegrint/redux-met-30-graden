@@ -34,4 +34,8 @@ export class MessageBoxComponent {
       return m;
     });
   }
+
+  public onDeleteClicked(messageId: number) {
+    this.messages = this.messages.filter(message => message.id !== messageId);
+  }
 }

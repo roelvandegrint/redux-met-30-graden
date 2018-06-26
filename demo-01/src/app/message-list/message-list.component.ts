@@ -19,6 +19,9 @@ export class MessageListComponent {
   @Output()
   public toggleClicked = new EventEmitter<number>();
 
+  @Output()
+  public deleteClicked = new EventEmitter<number>();
+
   public get filteredMessages(): Message[] {
     if (!this.filter || this.filter === 'all') {
       return this.messages;
@@ -32,5 +35,9 @@ export class MessageListComponent {
 
   public onToggleButtonClick(messageId: number): void {
     this.toggleClicked.emit(messageId);
+  }
+
+  public onDeleteClick(messageId: number): void {
+    this.deleteClicked.emit(messageId);
   }
 }

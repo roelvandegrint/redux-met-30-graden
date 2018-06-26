@@ -5,6 +5,7 @@
 
     <span>{{ message.text }} ({{ message.status }})
       <a [routerLink]="['/', message.id]">details tonen</a>
+      <a href="#" (click)="onDeleteClick(message.id)">Verwijderen</a>
     </span>
   </li>
 
