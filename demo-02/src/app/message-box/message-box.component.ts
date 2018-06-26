@@ -28,12 +28,17 @@ export class MessageBoxComponent {
   }
 
   public onReadClicked(message: Message) {
-    console.log(message);
-    this.messageService.makeRead(message).subscribe((updatedMessage) => {
+    this.messageService.toggle(message).subscribe((updatedMessage) => {
       this.messages = this.messages.map(m => {
         if (m.id !== message.id) { return m; }
         return updatedMessage;
       });
+    });
+  }
+
+  public onDeleteClicked(messageId: number) {
+    this.messageService.remove(messageId).subscribe((deletedMessageId: number) => {
+      this.messages = this.messages.filter(message => message.id !== deletedMessageId);
     });
   }
 }

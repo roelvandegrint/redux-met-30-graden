@@ -49,13 +49,14 @@ router.put('/:id', function (req, res, next) {
 });
 
 router.delete('/:id', function (req, res, next) {
+  const messageId = Number(req.params.id);
   fs.readFile(filePath, 'utf-8', function (err, data) {
     let messages = JSON.parse(data);
     messages = messages.filter(message => {
-      return message.id !== req.params.id;
+      return message.id !== messageId;
     });
     fs.writeFile(filePath, JSON.stringify(messages), function (err) {
-      res.end();
+      res.send(messageId.toString());
     });
   });
 });

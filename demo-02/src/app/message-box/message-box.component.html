@@ -13,10 +13,10 @@
 <div class="row">
   <div class="col-md">
     <h2>list one</h2>
-    <msg-message-list [messages]="messages" (readClicked)="onReadClicked($event)"></msg-message-list>
+    <msg-message-list [messages]="messages" (readClicked)="onReadClicked($event)" (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
   </div>
   <div class="col-md">
     <h2>list two (filter: {{filter}})</h2>
-    <msg-message-list [messages]="messages" [filter]="filter" (readClicked)="onReadClicked($event)"></msg-message-list>
+    <msg-message-list [messages]="messages" [filter]="filter" (readClicked)="onReadClicked($event)" (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
   </div>
 </div>

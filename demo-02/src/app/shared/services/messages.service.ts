@@ -24,7 +24,11 @@ export class MessageService {
     return this.http.post<Message>(this.baseUrl, { message });
   }
 
-  public makeRead(message: Message): Observable<Message> {
+  public toggle(message: Message): Observable<Message> {
     return this.http.put<Message>(`${this.baseUrl}/${message.id}`, message);
+  }
+
+  public remove(messageId: number): Observable<number> {
+    return this.http.delete<number>(`${this.baseUrl}/${messageId}`);
   }
 }

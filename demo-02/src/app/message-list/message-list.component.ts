@@ -19,6 +19,9 @@ export class MessageListComponent {
   @Output()
   public readClicked = new EventEmitter<Message>();
 
+  @Output()
+  public deleteClicked = new EventEmitter<number>();
+
   public get filteredMessages(): Message[] {
     if (!this.filter || this.filter === 'all') {
       return this.messages;
@@ -32,5 +35,9 @@ export class MessageListComponent {
 
   public onReadButtonClick(message: Message): void {
     this.readClicked.emit(message);
+  }
+
+  public onDeleteClick(messageId: number): void {
+    this.deleteClicked.emit(messageId);
   }
 }
