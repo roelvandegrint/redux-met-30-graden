@@ -38,7 +38,7 @@ router.put('/:id', function (req, res, next) {
         return message;
       }
       message.text = req.body.text;
-      message.status = 'read';
+      message.status = req.body.status === 'new' ? 'read' : 'new';
       updatedMessage = message;
       return message;
     });
