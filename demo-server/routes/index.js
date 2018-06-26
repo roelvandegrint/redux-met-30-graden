@@ -3,6 +3,7 @@ var router = express.Router();
 var path = require('path');
 var fs = require('fs');
 
+const originalFilePath = path.join(__dirname, '../data/messages.org.json');
 const filePath = path.join(__dirname, '../data/messages.json');
 
 /* GET home page. */
@@ -59,6 +60,12 @@ router.delete('/:id', function (req, res, next) {
       res.send(messageId.toString());
     });
   });
+});
+
+router.post('/reset', function (req, res, next) {
+  fs.copyFile(originalFilePath, filePath, (err) => {
+    res.status(200).end();
+  })
 });
 
 module.exports = router;
