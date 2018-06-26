@@ -17,7 +17,7 @@ export class MessageListComponent {
   public messageClicked = new EventEmitter<number>();
 
   @Output()
-  public readClicked = new EventEmitter<number>();
+  public toggleClicked = new EventEmitter<number>();
 
   public get filteredMessages(): Message[] {
     if (!this.filter || this.filter === 'all') {
@@ -30,7 +30,7 @@ export class MessageListComponent {
     this.messageClicked.emit(messageId);
   }
 
-  public onReadButtonClick(messageId: number): void {
-    this.readClicked.emit(messageId);
+  public onToggleButtonClick(messageId: number): void {
+    this.toggleClicked.emit(messageId);
   }
 }

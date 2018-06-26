@@ -25,12 +25,12 @@ export class MessageBoxComponent {
     this.filter = filter;
   }
 
-  public onReadClicked(messageId: number) {
-    this.messages.map(m => {
+  public onToggleClicked(messageId: number) {
+    this.messages = this.messages.map(m => {
       if (m.id !== messageId) {
         return m;
       }
-      m.status = 'read';
+      m.status = m.status === 'new' ? 'read' : 'new';
       return m;
     });
   }
