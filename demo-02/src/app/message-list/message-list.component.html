@@ -1,6 +1,6 @@
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let message of filteredMessages" (click)="onMessageClick(message.id)">
-    <button class="btn btn-secondary" (click)="onReadButtonClick(message)">Maak gelezen</button>
+    <button class="btn btn-secondary" (click)="onToggleButtonClick(message)">Maak gelezen</button>
 
     <span>{{ message.text }} ({{ message.status }})
       <a [routerLink]="['/', message.id]">details tonen</a>

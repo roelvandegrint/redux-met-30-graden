@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../shared/models/message.model';
 import { MessageService } from '../shared/services/messages.service';
+import { LOCATION_INITIALIZED } from '@angular/common';
 
 @Component({
   selector: 'msg-message-box',
   templateUrl: './message-box.component.html',
   styles: []
 })
-export class MessageBoxComponent {
+export class MessageBoxComponent implements OnInit {
   public filter = 'all';
   public messages: Message[] = [];
 
-  constructor(private readonly messageService: MessageService) {
+  constructor(private readonly messageService: MessageService) { }
+
+  ngOnInit() {
     this.messageService.getAll().subscribe((messages) => {
       this.messages = messages;
     });
@@ -27,7 +30,7 @@ export class MessageBoxComponent {
     this.filter = filter;
   }
 
-  public onReadClicked(message: Message) {
+  public onToggleClicked(message: Message) {
     this.messageService.toggle(message).subscribe((updatedMessage) => {
       this.messages = this.messages.map(m => {
         if (m.id !== message.id) { return m; }

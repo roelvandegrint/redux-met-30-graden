@@ -16,6 +16,7 @@ export class MessageFilterComponent implements OnInit {
   public filterChanged = new EventEmitter<string>();
 
   ngOnInit(): void {
+    console.log('init');
     if (this.currentFilter) {
       this.filter.setValue(this.currentFilter);
     }

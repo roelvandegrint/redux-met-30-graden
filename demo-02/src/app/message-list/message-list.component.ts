@@ -17,7 +17,7 @@ export class MessageListComponent {
   public messageClicked = new EventEmitter<number>();
 
   @Output()
-  public readClicked = new EventEmitter<Message>();
+  public toggleClicked = new EventEmitter<Message>();
 
   @Output()
   public deleteClicked = new EventEmitter<number>();
@@ -33,8 +33,8 @@ export class MessageListComponent {
     this.messageClicked.emit(messageId);
   }
 
-  public onReadButtonClick(message: Message): void {
-    this.readClicked.emit(message);
+  public onToggleButtonClick(message: Message): void {
+    this.toggleClicked.emit(message);
   }
 
   public onDeleteClick(messageId: number): void {

@@ -8,9 +8,19 @@ describe('MessageDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageDetailsComponent ]
-    })
-    .compileComponents();
+      declarations: [MessageDetailsComponent]
+    });
+
+    TestBed.overrideComponent(MessageDetailsComponent, {
+      remove: {
+        templateUrl: './message-details.component.html',
+      },
+      add: {
+        template: '<div></div>'
+      }
+    });
+
+    TestBed.compileComponents();
   }));
 
   beforeEach(() => {
