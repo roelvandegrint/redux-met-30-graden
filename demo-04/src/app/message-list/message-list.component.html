@@ -1,7 +1,7 @@
 <ul class="list-group">
   <li class="list-group-item list-group-item-action" *ngFor="let message of filteredMessages" (click)="onMessageClick(message.id)">
     <div class="row">
-      <div class="col-sm">
+      <div class="col-md">
         <p>
           {{ message.text }}
           <span *ngIf="message.status === 'new'"><strong> ({{ message.status }})</strong></span>
@@ -9,16 +9,19 @@
       </div>
     </div>
     <div class="row">
+
       <div class="col-md">
         <a href="javascript:void(0)" (click)="onToggleButtonClick(message)">{{ message.status === 'new' ? 'Maak
-          gelezen' : 'Maak
-          ongelezen' }}</a> <br>
+          gelezen' : 'Maak ongelezen' }}</a><br>
+
         <a href="javascript:void(0)" [routerLink]="['/', message.id]">Details tonen</a>
       </div>
+
       <div class="pull-md-right">
         <button type="button" class="btn btn-outline-danger" (click)="onDeleteClick(message.id)"><i class="fa fa-trash"></i>
           Verwijderen</button>
       </div>
+
     </div>
   </li>
 </ul>

@@ -3,7 +3,7 @@
 <div *ngIf="(messages$ | async)?.toggleStatus?.active">Bezig met toggelen bericht</div>
 <div *ngIf="(messages$ | async)?.remove?.active">Bezig met verwijderen bericht</div>
 
-<div class="row uwv-toolbar">
+<div class="row custom-toolbar">
   <div class="col-md-10">
     <msg-add-message (addMessage)="onAddMessage($event)"></msg-add-message>
   </div>
