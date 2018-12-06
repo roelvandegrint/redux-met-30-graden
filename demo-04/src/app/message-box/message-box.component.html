@@ -1,29 +1,26 @@
-<div *ngIf=" (messages$ | async)?.load?.active ">Bezig met laden berichten</div>
-<div *ngIf="(messages$ | async)?.add?.active ">Bezig met toevoegen bericht</div>
-<div *ngIf="(messages$ | async)?.toggleStatus?.active ">Bezig met toggelen bericht</div>
-<div *ngIf="(messages$ | async)?.remove?.active ">Bezig met verwijderen bericht</div>
+<div *ngIf=" (messages$ | async)?.load?.active">Bezig met laden berichten</div>
+<div *ngIf="(messages$ | async)?.add?.active">Bezig met toevoegen bericht</div>
+<div *ngIf="(messages$ | async)?.toggleStatus?.active">Bezig met toggelen bericht</div>
+<div *ngIf="(messages$ | async)?.remove?.active">Bezig met verwijderen bericht</div>
 
-<div class="row ">
-  <div class="col-md-8 ">
-    <msg-add-message (addMessage)="onAddMessage($event) "></msg-add-message>
+<div class="row uwv-toolbar">
+  <div class="col-md-10">
+    <msg-add-message (addMessage)="onAddMessage($event)"></msg-add-message>
+  </div>
+  <div class="col-md-2">
+    <msg-message-filter [currentFilter]="filter$ | async" (filterChanged)="onFilterChanged($event)"></msg-message-filter>
   </div>
 </div>
 
-<div class="row ">
-  <div class="col-md-8 ">
-    <msg-message-filter [currentFilter]="filter$ | async " (filterChanged)="onFilterChanged($event) "></msg-message-filter>
+<div class="row">
+  <div class="col-md">
+    <h2>List one</h2>
+    <msg-message-list [messages]="(messages$ | async)?.items" (toggleClicked)="onToggleClicked($event)"
+      (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
   </div>
-</div>
-
-<div class="row ">
-  <div class="col-md ">
-    <h2>list one</h2>
-    <msg-message-list [messages]="(messages$ | async)?.items " (toggleClicked)="onToggleClicked($event)
-  " (deleteClicked)="onDeleteClicked($event) "></msg-message-list>
-  </div>
-  <div class="col-md ">
-    <h2>list two (filter: {{filter}})</h2>
-    <msg-message-list [messages]="(messages$ | async)?.items " [filter]="filter$ | async " (toggleClicked)="onToggleClicked($event) "
-      (deleteClicked)="onDeleteClicked($event) "></msg-message-list>
+  <div class="col-md">
+    <h2>List two (filter: {{ filter$ | async }})</h2>
+    <msg-message-list [messages]="(messages$ | async)?.items" [filter]="filter$ | async" (toggleClicked)="onToggleClicked($event)"
+      (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
   </div>
 </div>

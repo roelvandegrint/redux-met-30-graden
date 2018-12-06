@@ -1,5 +1,11 @@
+<a style="margin-bottom:50px" [routerLink]="['/']">Terug naar overzicht</a>
+
 <p>
   Id: {{ (message$ | async)?.id }}
+</p>
+<p>
   Text: {{ (message$ | async)?.text }}
+</p>
+<p>
   Status: {{ (message$ | async)?.status }}
 </p>
