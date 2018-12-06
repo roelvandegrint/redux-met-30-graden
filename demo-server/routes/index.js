@@ -21,7 +21,7 @@ router.get('/:id', function (req, res, next) {
 router.post('/', function (req, res, next) {
   fs.readFile(filePath, 'utf-8', function (err, data) {
     const messages = JSON.parse(data);
-    const newId = Math.max(...messages.map(m => Number(m.id))) + 1;
+    const newId = messages.length > 0 ? Math.max(...messages.map(m => Number(m.id))) + 1 : 1;
     const newMessage = { id: newId, text: req.body.message, status: 'new' };
     messages.push(newMessage);
     fs.writeFile(filePath, JSON.stringify(messages), function (err) {
