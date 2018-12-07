@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.list-group-item .btn {
+    margin: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px 0 40px 0;
+}
+
+.custom-toolbar {
+    margin-bottom: 10px;
+}

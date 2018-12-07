@@ -1,22 +1,21 @@
-<div class="row">
-  <div class="col-md-8">
+<div class="row custom-toolbar">
+  <div class="col-md-10">
     <msg-add-message (addMessage)="onAddMessage($event)"></msg-add-message>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-8">
+  <div class="col-md-2">
     <msg-message-filter [currentFilter]="filter" (filterChanged)="onFilterChanged($event)"></msg-message-filter>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md">
-    <h2>list one</h2>
-    <msg-message-list [messages]="messages" (toggleClicked)="onToggleClicked($event)" (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
+    <h2>List one</h2>
+    <msg-message-list [messages]="messages" (toggleClicked)="onToggleClicked($event)"
+      (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
   </div>
   <div class="col-md">
-    <h2>list two (filter: {{filter}})</h2>
-    <msg-message-list [messages]="messages" [filter]="filter" (toggleClicked)="onToggleClicked($event)" (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
+    <h2>List two (filter: {{ filter }})</h2>
+    <msg-message-list [messages]="messages" [filter]="filter" (toggleClicked)="onToggleClicked($event)"
+      (deleteClicked)="onDeleteClicked($event)"></msg-message-list>
   </div>
 </div>
