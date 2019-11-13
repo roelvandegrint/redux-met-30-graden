@@ -19,6 +19,8 @@ The NgRx implementation of the pattern, which is the subject of this suite of de
 
 ## Good luck
 
-In the set of demos in this repository you will find the same application, where for each demo, another piece of the puzzle is implemented. The initial implementation is implemented without any use of NgRx. The final demo contains everything that's in the framework's core.
+In the set of demos in this repository you will find the same application, where for each demo, another piece of the framework is implemented. The initial implementation is implemented without any use of NgRx. The final demo contains everything that's in the framework's core.
+
+Each folder has an own README file which explains the contents of the demo and the way to use the code.
 
 I hope these examples wil further you knowledge about the Redux pattern, the NgRx framework and the advantages it provides the development team. If you ever have any questions, don't hold back and get in touch. If you find any issues in the code, don't hesitate to create a PR.
