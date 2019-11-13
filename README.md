@@ -1,4 +1,4 @@
-# redux-met-30-graden
+# Introduction to Redux and NgRx
 
 ## Introduction
 Web Applications are everywhere nowadays. Front-End frameworks like Angular, React and Vue provide delopers easy ways to develop single page applications (SPA's), applications that are loaded from the server once and run in the client from that point on. Pages are not loaded from the server by a browser for each new page. Client-side routing takes care of that part, often provided fully by the framework in use, otherwise easily added by importing some module.
