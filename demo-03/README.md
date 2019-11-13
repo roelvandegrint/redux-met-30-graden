@@ -1,27 +1,48 @@
-# MessagesApp
+# MessagesApp - Demo 3
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+## Introduction
+
+This demo introduces two core concepts of Redux, implemented through NgRx: The Store, Actions and Reducers.
+
+### Store
+The store is the central repository for the state object in Redux. The state object is just a JavaScript object, which represents the current state of the application at any given point in time. The store is updated through reducers, which process actions. Both of which will be described next
+
+### Actions
+Actions are instructions dispatched to the store. An action is a simple javascript object which has a single requirement: it must have a type parameter, which is a string. Besides 'type', an action can have any other properties you want. The type will be used in by each reducer to decide if it needs to handle the specific action. The rest of the information can be used by reducers to update state.
+
+#### Example of an NgRx Action:
+
+```
+{
+  type: 'add todo item',
+  description: 'buy milk'
+}
+```
+
+### Reducers
+Reducers are pure functions which update (a slice of) state. Reducers always received the current state and an action, and return the new state value. Reducers can be combined to slice state in to multiple small pieces, so multiple reducers in the end combine into a single new state object. State in NgRx is immutable, which means the state that comes into a reducer function should never be updated, rather a new copy of the state object should be returned by cloning it.
+
+#### Example of an NgRx Reducer:
+
+```
+const TodoReducer = (state: ToDo, action) => {
+  switch(action.type) {
+    case 'create todo':
+      return { description: action.description, completed: false };
+    case 'update todo':
+      return { 
+        ...state,
+        description: action.description
+      };
+    case 'complete todo item':
+      return {
+        ...state,
+        completed: true
+      }
+  }
+}
+```
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
